@@ -5,11 +5,11 @@ namespace gear
 {
     enum EBattleType : int32_t
     {
-        COIN,
-        BALLOON,
-        KEIDORO,
-        BOMB,
-        SHINE,
-        NONE
+        Coin,
+        Nalloon,
+        Keidoro,
+        Bomb,
+        Shine,
+        None
     };
 }

@@ -5,13 +5,13 @@ namespace gear
 {
     enum ERaceRule : int32_t
     {
-        GRANDPRIX,
+        GrandPrix,
         VS,
-        TIMEATTACK,
-        BATTLE,
-        TITLE_RACE,
-        MENU,
-        THEATER_MENU,
-        CUSTOMIZER
+        TimeAttack,
+        Battle,
+        TitleRace,
+        Menu,
+        TheaterMenu,
+        Customizer
     };
 }
