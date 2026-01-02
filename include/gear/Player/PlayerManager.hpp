@@ -7,9 +7,9 @@ namespace gear
     class PlayerManager : public Actor
     {
         public:
-            char mPad18[0xB0]; //0x1C
-            u32 mLocalPlayerAmount; //0xCC
-            char mPadD0[0xB8]; //0xD0
+            uint8_t mPad38[0x140]; //0x38
+            uint32_t mLocalPlayerAmount; //0x178
+            uint8_t mPad17C[0xB8]; //0x17C
     };
 
     PlayerManager* GetPlayerManager();
