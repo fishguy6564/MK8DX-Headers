@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include <object/Course/LapRankChecker.hpp>
+#include <object/Race/LapRankChecker.hpp>
 
 namespace object
 {
