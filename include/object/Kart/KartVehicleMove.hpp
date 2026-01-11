@@ -29,9 +29,9 @@ namespace object
 			sead::Vector3f mPad320; //0x320 - 0x328
 			sead::Vector3f mPad32C; //0x32C - 0x334
 			sead::Vector3f mPad338; //0x338 - 0x340
-			uint8_t mPad344[0xDC]; //0x344
-			float mSpeed; //0x420
-			uint8_t mPad424[0x1D4];
+			uint8_t mPad344[0x38]; //0x344
+			float mSpeed; //0x37C
+			uint8_t mPad400[0x1F8];
 
             void SetMatrix(gear::MtxT const& transformation, sead::Vector3<float> position);
 			void SetMatrix(gear::MtxT const& transformation);
