@@ -23,6 +23,7 @@ namespace gear
         void bind(int,sead::SafeStringBase<char> const&);
 
         bool isPlay(void)const;
+        bool isFrameMin(void)const;
         bool isFrameMax(void)const;
 
         float getFrame(void)const;

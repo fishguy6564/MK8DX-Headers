@@ -21,6 +21,7 @@ namespace eui
             uintptr_t* layout; //0x10
             int32_t mPad18; //0x18
             int32_t mPad20; //0x20
+            int32_t mPad24; //0x24
             gear::UIControl* control; //0x28
 
             ControlBase();

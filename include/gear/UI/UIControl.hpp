@@ -7,6 +7,7 @@
 #include <prim/seadRuntimeTypeInfo.h>
 
 #include <nn/ui2d/Layout.h>
+#include <_nn/ui2d/Layout.hpp>
 #include <_nn/ui2d/TextureInfo.h>
 
 #include "UIAnimator.hpp"
@@ -48,7 +49,7 @@ namespace gear
         UILoader* mUILoader; //0x30
         uint32_t mAnimatorAmount; //0x38
         uint32_t mPad3C; //0x3C
-        UIAnimator** mAnimator; //0x40
+        UIAnimator** mAnimators; //0x40
         uint32_t mPad48; //0x48
         uint32_t mPad4C; //0x4C
         uint32_t mPad50; //0x50
@@ -58,6 +59,7 @@ namespace gear
         uint32_t mPad60; //0x60
         uint32_t mPad64; //0x64
         uint32_t mControlIndex; //0x68
+        uint32_t mPad6C; // 0x6C
         uint32_t mPad70; //0x70
         uint32_t mPad74; //0x74
         bool mPad78; //0x78
@@ -65,11 +67,12 @@ namespace gear
         uint16_t mPad7A; //0x7A
         int32_t mPad7C; //0x7C
         int32_t mPad80; //0x80
+        int32_t mPad84; // 0x84
 
         
         UIControl();
 
-        static void setTexture(nn::ui2d::Pane *,nn::ui2d::TextureInfo const*,uint);
+        static void setTexture(nn::ui2d::Pane *,nn::ui2d::TextureInfo const*, unsigned int);
         static void setMessage(nn::ui2d::Pane*, char16_t const*);
         static void setVisible(nn::ui2d::Pane*, bool);
 
@@ -84,7 +87,9 @@ namespace gear
         nn::ui2d::Pane* loadTexture(sead::SafeStringBase<char> const&)const;
         nn::ui2d::Pane* getTexture(sead::SafeStringBase<char> const&)const;
 
-        static void* operator new(size_t size) asm("_ZN2nn4ui2d6Layout14AllocateMemoryEjj");
+        static void* operator new(size_t size) {
+            return _ZN2nn4ui2d6Layout14AllocateMemoryEjj(size, 4);
+        }
 
         static void operator delete(void* p)
         {
