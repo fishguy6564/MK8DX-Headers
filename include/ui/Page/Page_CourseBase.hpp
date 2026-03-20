@@ -52,5 +52,7 @@ namespace ui
         void createButton_(gear::UIControl *,bool);
 
         void onUpdateRun();
+
+        ui::Control_CupButton* getCurrentCupButton(void);
     };
 }
