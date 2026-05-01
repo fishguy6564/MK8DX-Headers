@@ -14,7 +14,8 @@ namespace ui
         bool mIsNew;            // 0x3CC
         uint8_t mPad3CD[0x3];   // 0x3CD
         ECup mCupId;            // 0x3D0
-        uint8_t mPad3D4[0xC];   // 0x3D4
+        uint32_t mPad3D4;       // 0x3D4
+        nn::ui2d::Pane* mPane;  // 0x3D8
 
         void setCup(ui::ECup,ui::DLCState);
 

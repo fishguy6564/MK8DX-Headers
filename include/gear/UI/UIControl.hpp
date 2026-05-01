@@ -5,6 +5,7 @@
 #include <eui/LayoutEx.hpp>
 #include <prim/seadSafeString.h>
 #include <prim/seadRuntimeTypeInfo.h>
+#include <container/seadBuffer.h>
 
 #include <nn/ui2d/Layout.h>
 #include <_nn/ui2d/Layout.hpp>
@@ -24,21 +25,21 @@ namespace gear
     class UIControl
     {
     public:
-        virtual void checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const; //0x00
-        virtual void getRuntimeTypeInfo(); //0x04
-        virtual void calc(float);
-        virtual void nullsub1() {}; //0x0C
-        virtual void decide(gear::UIEvent const&) {} //0x10
-        virtual void cancel(int) {} //0x14
-        virtual void onCreate_() {} //0x18 -
-        virtual void onInit_() {} //0x1C -
-        virtual void onIn_() {} //0x20 - 
-        virtual void onCalc_() {} //0x24 -
-        virtual void onInput_() {}; //0x28
-        virtual void onHandler_(gear::UIEvent const&) {} //0x2C
-        virtual bool onVisibleCursor_() { return true; } //0x30
-        virtual bool nullsub6() { return false; } //0x34
-        virtual void onFollowCursor_(unsigned int); //0x38
+        virtual bool checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*); //0x00
+        virtual sead::RuntimeTypeInfo::Interface* getRuntimeTypeInfo()const; //0x08
+        virtual void calc(float); // 0x10
+        virtual void nullsub1() {}; //0x18
+        virtual void decide(gear::UIEvent const&) {} //0x20
+        virtual void cancel(int) {} //0x28
+        virtual void onCreate_() {} //0x30
+        virtual void onInit_() {} //0x38
+        virtual void onIn_() {} //0x40 
+        virtual void onCalc_() {} //0x48
+        virtual void onInput_() {}; //0x50
+        virtual void onHandler_(gear::UIEvent const&) {} //0x58
+        virtual bool onVisibleCursor_() { return true; } //0x60
+        virtual bool nullsub6() { return false; } //0x68
+        virtual void onFollowCursor_(unsigned int); //0x70
         
         eui::ControlBase* mControlBase; //0x08
         eui::LayoutEx* mLayout; //0x10
@@ -47,14 +48,12 @@ namespace gear
         UIControl* mRootUIControl; //0x20
         uintptr_t mPad18; //0x28
         UILoader* mUILoader; //0x30
-        uint32_t mAnimatorAmount; //0x38
-        uint32_t mPad3C; //0x3C
-        UIAnimator** mAnimators; //0x40
+        sead::Buffer<gear::UIAnimator*> mAnimators; // 0x38
         uint32_t mPad48; //0x48
         uint32_t mPad4C; //0x4C
         uint32_t mPad50; //0x50
         uint32_t mPad54; //0x54
-        uint32_t mIteractionStatus; //0x58
+        uint32_t mInteractionStatus; //0x58
         uint32_t mPad5C; //0x5C
         uint32_t mPad60; //0x60
         uint32_t mPad64; //0x64

@@ -46,18 +46,18 @@ namespace gear
                     ~EControlType() {}
             };
 
-            virtual ~UIPage() {}; //0x00, 0x04
-            virtual bool checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const override; //0x08
-            virtual sead::RuntimeTypeInfo::Interface const* getRuntimeTypeInfo(void)const override; //0x0C
-            virtual const char* getLayoutName_(void)const override { return "cm_Page_Dummy"; }; //0x34
-            virtual eui::LayoutEx* doCreateLayout_(sead::Heap *) override; //0x48
-            virtual void doSetupDrawInfo_(void) override {}; //0x58
-            virtual void doCreateUIController_(sead::Heap *) override {}; //0x5C
-            virtual void doCreateResourceAccessor_(sead::Heap *) override {}; //0x60
-            virtual void doCreateTagProcessor_(sead::Heap *) override {}; //0x64
-            virtual void doBuildLayout_(sead::SafeStringBase<char> const&, nn::ui2d::ResourceAccessor *) override {}; //0x68
-            virtual void doLoadResource_(sead::Heap *) override {}; //0x6C
-            virtual void updateButton_(void) override {}; //0xC0
+            virtual ~UIPage() {}; //0x00, 0x08
+            virtual bool checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const override; //0x10
+            virtual sead::RuntimeTypeInfo::Interface const* getRuntimeTypeInfo(void)const override; //0x18
+            virtual const char* getLayoutName_(void)const override { return "cm_Page_Dummy"; }; //0x20
+            virtual eui::LayoutEx* doCreateLayout_(sead::Heap *) override; //0x28
+            virtual void doSetupDrawInfo_(void) override {}; //0x30
+            virtual void doCreateUIController_(sead::Heap *) override {}; //0x38
+            virtual void doCreateResourceAccessor_(sead::Heap *) override {}; //0x40
+            virtual void doCreateTagProcessor_(sead::Heap *) override {}; //0x48
+            virtual void doBuildLayout_(sead::SafeStringBase<char> const&, nn::ui2d::ResourceAccessor *) override {}; //0x50
+            virtual void doLoadResource_(sead::Heap *) override {}; //0x58
+            virtual void updateButton_(void) override {}; //0x60
             virtual void updateControl_(void) override {}; //0xC4
             virtual void onDialogUpdateRun_(ui::Page_Dialog &) {}; //0x10C
             virtual void onDialogComplete_(ui::Page_Dialog &) {}; //0x110
@@ -82,7 +82,7 @@ namespace gear
             virtual void onStateSub_(void) {}; //0x15C 0x43AFF8
             virtual void onCalc_(void) {}; //0x160 
             virtual void onInput_(void) {}; //0x164 0x43AFFC
-            virtual void onHandler_(gear::UIEvent const&) {}; //0x168
+            virtual void onHandler_(gear::UIEvent const&); //0x168
             virtual void onUpdate_(void) {}; //0x16C
             virtual void onPrepare_(void) {}; //0x170
 
@@ -118,7 +118,8 @@ namespace gear
             uint32_t mPad174; // 0x174
 
             ui::Page_Dialog* mActiveDialog; // 0x178
-            uintptr_t mPad180; // 0x180
+            uint32_t mPad180; // 0x180
+            uint32_t mNextPageId; // 0x184
             uintptr_t mPad188; // 0x188
 
             // NOTE: bool is sign extended when stored here.

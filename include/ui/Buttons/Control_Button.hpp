@@ -3,6 +3,7 @@
 #include <eui/ControlBase.hpp>
 
 #include <gear/UI/UIControl.hpp>
+#include <gear/UI/Flow/UIFlow.hpp>
 #include <gear/UI/UIInput_Key.hpp>
 #include <gear/UI/Input/UIInput_Touch.hpp>
 
@@ -15,7 +16,7 @@ namespace ui
     public:
         gear::UIInput_Key mInputKey;        // 0xD8
         gear::UIInput_Touch mInputTouch;    // 0x108
-        uint64_t mStateFlags;               // 0x158
+        gear::UIFlow* mFlow;                // 0x158
         uint32_t mPad160;                   // 0x160
         float mPad164;                      // 0x164
         uintptr_t mPad168;                  // 0x168

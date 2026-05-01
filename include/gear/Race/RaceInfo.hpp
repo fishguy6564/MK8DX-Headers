@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ERaceRule.hpp"
+#include "EEngineLevelSlot.hpp"
 #include "../Battle/EBattleType.hpp"
 
 namespace gear
@@ -12,7 +13,8 @@ namespace gear
         uint32_t mPad04; //0x04
         ERaceRule mRaceRule; //0x8
         EBattleType mBattleType; //0xC
-        char mPad10[0x14]; //0x10
+        EEngineLevelSlot mEngineClass; // 0x10
+        uint8_t mPad14[0x10]; // 0x14
         int16_t mRaceFlag; //0x24
         bool mIsMirror; //0x26
         bool mPad27; //0x27
@@ -25,4 +27,5 @@ namespace gear
     };
 
     RaceInfo* GetRaceInfo();
+    RaceInfo* GetNextRaceInfo();
 }

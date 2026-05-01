@@ -7,6 +7,7 @@
 
 #include "ui/Buttons/Control_CupButton.hpp"
 #include "ui/Buttons/Control_CourseButton.hpp"
+#include "ui/Icon/Control_TrophyIcon.hpp"
 
 namespace ui
 {
@@ -23,12 +24,12 @@ namespace ui
 
         ui::Control_CourseButton* mCourseButtons[4]; // 0x550
 
-        uintptr_t mPad570; // 0x570
+        ui::Control_TrophyIcon* mTrophyIcon; // 0x570
         gear::UIControl* mBaseLayoutControl; // 0x578
-        uintptr_t mPad580; // 0x580
+        nn::ui2d::Pane* mCupTitlePane; // 0x580
         uintptr_t mPad588; // 0x588
 
-        uint32_t mPad590; // 0x590
+        float mAnimationTargetFrame; // 0x590
         sead::Vector3f mPad594; // 0x594
 
         bool mPad5A0; // 0x5A0
@@ -42,6 +43,8 @@ namespace ui
         bool mPad5AC; // 0x5AC
         uint8_t mPad5AD; // 0x5AD
 
+        void onHandler_(gear::UIEvent const& event) override;
+
         static ui::DLCState isDLC(ui::ECup);
         void changeCup_(ui::ECup);
 
@@ -52,6 +55,8 @@ namespace ui
         void createButton_(gear::UIControl *,bool);
 
         void onUpdateRun();
+
+        void setNextCourseAnimal_(void);
 
         ui::Control_CupButton* getCurrentCupButton(void);
     };

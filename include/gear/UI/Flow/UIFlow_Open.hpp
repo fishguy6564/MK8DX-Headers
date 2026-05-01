@@ -2,11 +2,13 @@
 
 #include <cstdint>
 
+#include "UIFlow.hpp"
+
 namespace gear
 {
-    class UIFlow_Open
+    class UIFlow_Open : public UIFlow
     {
     public:
-        uint8_t mPad00[0x150]; // 0x00
+        uint8_t mPad28[0x128]; // 0x28
     };
 }

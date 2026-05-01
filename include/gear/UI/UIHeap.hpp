@@ -4,17 +4,19 @@
 
 #include "UILoader.hpp"
 #include "EUIHeapID.hpp"
+#include <heap/seadExpHeap.h>
 #include <ui/Course/UICourseTex.hpp>
+#include <ui/Heap_CommonInfo.hpp>
 
 namespace gear
 {
     class UIHeap
     {
     public:
-        uint8_t mPad00[0x18]; //0x00
+        uint8_t mPad00[0x10]; //0x00
+        sead::Heap* mHeap; // 0x10
         UILoader* mUILoader;  //0x18
-        uint8_t mPad20[0x330]; //0x20
-        ui::UICourseTex* mUICourseTex; // 0x350
+        uint8_t mPad20[0x10]; //0x20
 
         void setID(gear::EUIHeapID);
 

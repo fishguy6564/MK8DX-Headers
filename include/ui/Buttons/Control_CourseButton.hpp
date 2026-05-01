@@ -2,6 +2,8 @@
 
 #include "Control_Button.hpp"
 #include <mush/Course/ECourseID.hpp>
+#include <ui/Cup/ECup.hpp>
+#include <ui/Course/CourseInfo.hpp>
 #include <nn/ui2d/Pane.h>
 
 namespace ui
@@ -18,5 +20,8 @@ namespace ui
         uint8_t mPad3F1[0x7];                       // 0x3F1
 
         Control_CourseButton(bool);
+
+        void setCourseInvalid(ui::ECup);
+        void setCourse(const ::ui::CourseInfo& info);
     };
 }

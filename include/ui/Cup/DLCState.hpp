@@ -12,7 +12,8 @@ namespace ui
                 NotSaleReserve = 1,
                 NotBuy = 2,
                 NotBuyReserve = 3,
-                Buy = 4
+                Locked = 4,
+                Unlocked = 5
             };
 
             DLCState_ mValue;

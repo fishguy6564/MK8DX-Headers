@@ -19,6 +19,8 @@ namespace gear
         void playOnOff(int, int, int, float);
 
         void stop(int, float);
+        void stopMax(int);
+        void stopMin(int);
 
         void bind(int,sead::SafeStringBase<char> const&);
 

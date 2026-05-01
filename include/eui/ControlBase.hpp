@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <prim/seadRuntimeTypeInfo.h>
 
 namespace gear
 {
@@ -13,7 +14,7 @@ namespace eui
 	{
         public:
             virtual const char* getClassName() { return "ControlBase"; } //0x00
-            virtual void GetRuntimeTypeInfo(); //0x08
+            virtual sead::RuntimeTypeInfo::Interface* GetRuntimeTypeInfo(); //0x08
             virtual ~ControlBase() = default; //0x10
             virtual void Update(float) {}; //0x18
 
