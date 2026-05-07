@@ -5,6 +5,8 @@
 #include <gear/Actor/Actor.hpp>
 
 #include "ItemSlot.hpp"
+#include "ItemObjBase.hpp"
+#include "EItemSlot.hpp"
 
 namespace gear
 {
@@ -16,13 +18,12 @@ namespace gear
             uint32_t mPad3C; //0x3C
             uint32_t mPlayerID; //0x40
             uint32_t mPad44; //0x44
-            gear::KartInfoProxy* mKartInfoProxy; //0x48
+            uintptr_t mKartInfoProxy; //0x48
             uint32_t mPad50; //0x50
             uint32_t mPad54; //0x54
             ItemSlot* mCurrentSlot; //0x58
             ItemSlot* mItemSlot0; //0x60
             ItemSlot* mItemSlot1; //0x68
-            uint32_t mPad6C; //0x6C
             int32_t mSwapAutoKeepEquipDelay; //0x70
             uint32_t mPad74; //0x74
             gear::ItemObjBase* mKeepItemObj; //0x78
@@ -33,13 +34,13 @@ namespace gear
             bool mIsThrowTrigger; //0xCC
             uint8_t mPadCD[3]; //0xCD
             uint32_t mAnimThrowFrame; //0xD0
-            uint8_t mPadD4[4]; //0xD4
+            uint32_t mPadD4; //0xD4
             gear::ItemObjBase* throwItemObj; //0xD8
-            uint8_t mPadDC[0x10]; //0xDC
+            uint8_t mPadE0[0xC]; //0xE0
             bool mIsItemButtonPress; //0xEC
             uint8_t mPadED[3]; //0xED
             int32_t mSwapUseDelay; //0xF0
-            bool mIsEndByUseCountItem; //0xF4
+            bool mItemEndsByUseCount; //0xF4
             uint8_t mPadF5[3]; //0xF5
             uint32_t mUseCount; //0xF8
             uint32_t mUseCountMax; //0xFC
@@ -49,7 +50,7 @@ namespace gear
             uint32_t mUseTimeMax; //0x108
             uint16_t mSerial; //0x10C
             uint16_t mPad10E; //0x10E
-            Vector3f mHandItemAnim; //0x110
+            sead::Vector3f mHandItemAnim; //0x110
             bool mIsHaveHandItem; //0x11C
             uint8_t mPad11D[3]; //0x11D
             uint8_t mPad120[0x80]; //0x120
@@ -59,7 +60,7 @@ namespace gear
             void setNewSerial(unsigned short, bool);
             void execEvent_SlotClear(unsigned char);
 
-            // void startSlot(int, gear::EItemSlot, bool)const;
+            void startSlot(int, gear::EItemSlot, bool)const;
             void decideSlot(int);
             void clearSlot(int,bool);
     };
