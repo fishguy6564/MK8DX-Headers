@@ -66,7 +66,6 @@ namespace gear
         uint16_t mPad7A; //0x7A
         int32_t mPad7C; //0x7C
         int32_t mPad80; //0x80
-        int32_t mPad84; // 0x84
 
         
         UIControl();

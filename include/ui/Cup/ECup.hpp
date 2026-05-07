@@ -8,6 +8,7 @@ namespace ui
         public:
             enum ECup_ : int32_t
             {
+                Invalid,
                 Mushroom,
                 Flower,
                 Star,
