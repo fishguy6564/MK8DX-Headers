@@ -5,7 +5,7 @@
 #include <gear/Actor/Actor.hpp>
 
 #include "ItemSlot.hpp"
-#include "ItemObjBase.hpp"
+#include "Obj/ItemObjBase.hpp"
 #include "EItemSlot.hpp"
 
 namespace gear
@@ -18,9 +18,8 @@ namespace gear
             uint32_t mPad3C; //0x3C
             uint32_t mPlayerID; //0x40
             uint32_t mPad44; //0x44
-            uintptr_t mKartInfoProxy; //0x48
-            uint32_t mPad50; //0x50
-            uint32_t mPad54; //0x54
+            object::KartInfoProxy* mKartInfoProxy; //0x48
+            uint8_t mPad50[8]; //0x50
             ItemSlot* mCurrentSlot; //0x58
             ItemSlot* mItemSlot0; //0x60
             ItemSlot* mItemSlot1; //0x68
