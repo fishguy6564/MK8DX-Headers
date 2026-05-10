@@ -7,9 +7,12 @@
 #include "ItemSlot.hpp"
 #include "Obj/ItemObjBase.hpp"
 #include "EItemSlot.hpp"
+#include <object/Kart/KartInfoProxy.hpp>
 
 namespace gear
 {
+	class ItemSlot;
+	
     class ItemOwner : public Actor
     {
         public:
@@ -23,22 +26,23 @@ namespace gear
             ItemSlot* mCurrentSlot; //0x58
             ItemSlot* mItemSlot0; //0x60
             ItemSlot* mItemSlot1; //0x68
-            int32_t mSwapAutoKeepEquipDelay; //0x70
-            uint32_t mPad74; //0x74
+            int32_t mSwapSlotTimer; //0x70
+            uint32_t mSwapSlotFlag; //0x74
             gear::ItemObjBase* mKeepItemObj; //0x78
             gear::ItemObjBase* mEquipItemObj[8]; //0x80
-            uint32_t mEquipCurrentNum; //0xC0
-            uint32_t mEquipMaxNum; //0xC4
+            uint32_t mEquipCurrentCount; //0xC0
+            uint32_t mEquipTotalCount; //0xC4
             gear::EItemSlot mEquipItemSlot; //0xC8
-            bool mIsThrowTrigger; //0xCC
+            bool mIsThrowStart; //0xCC
             uint8_t mPadCD[3]; //0xCD
-            uint32_t mAnimThrowFrame; //0xD0
+            uint32_t mThrowAnimFrame; //0xD0
             uint32_t mPadD4; //0xD4
             gear::ItemObjBase* throwItemObj; //0xD8
-            uint8_t mPadE0[0xC]; //0xE0
+            gear::ItemObjBase* mPreviousUsedItemObj; //0xE0
+            uint32_t mPadE8; //0xE8
             bool mIsItemButtonPress; //0xEC
             uint8_t mPadED[3]; //0xED
-            int32_t mSwapUseDelay; //0xF0
+            int32_t mSwapSlotDuration; //0xF0
             bool mItemEndsByUseCount; //0xF4
             uint8_t mPadF5[3]; //0xF5
             uint32_t mUseCount; //0xF8
