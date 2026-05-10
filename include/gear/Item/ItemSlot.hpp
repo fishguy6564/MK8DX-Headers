@@ -41,7 +41,7 @@ namespace gear
             uint8_t mNetRetrySequenceCounter; //0xB8
             uint8_t mPadB9[3];
             int32_t mManualStopTimeUntilDecide; //0xBC
-            bool misSlotDecide; //0xC0
+            bool mIsSlotDecide; //0xC0
             bool mIsSlotFlash; // 0xC1
             bool mIsSlotDebug; // 0xC2
             uint8_t mPadC3; //0xC3
