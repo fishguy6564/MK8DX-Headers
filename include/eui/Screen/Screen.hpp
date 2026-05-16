@@ -6,8 +6,6 @@
 
 #include <container/seadListImpl.h>
 
-#include "ScreenMgr.hpp"
-
 #include "eui/Button/ButtonGroup.hpp"
 #include "eui/Animator/AnimButton.hpp"
 #include "eui/Animator/Animator.hpp"
@@ -29,6 +27,7 @@
 
 namespace eui
 {
+    class ScreenMgr;
     class Screen : public sead::IDisposer
     {
         public:
@@ -102,6 +101,14 @@ namespace eui
             virtual void invokeSoundLink2Event_(char const*) {}; //0x200
             virtual void invokeSoundLink2ButtonEvent_(eui::AnimButton *, char const*) {}; //0x208
             virtual void invokeSoundLink2AnimPlayEvent(eui::Animator *, char const*) {}; //0x210
+
+            static inline sead::RuntimeTypeInfo::Interface** sInfo = nullptr;
+            
+            static inline const sead::RuntimeTypeInfo::Interface* getRuntimeTypeInfoStatic() {
+                return reinterpret_cast<sead::RuntimeTypeInfo::Interface*>(
+                    *reinterpret_cast<uintptr_t*>(sInfo)
+                );
+            }
 
             eui::ScreenMgr* mScreenMgr; // 0x20
             eui::LayoutEx* mLayoutEx; //0x28

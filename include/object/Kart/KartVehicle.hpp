@@ -51,7 +51,7 @@ namespace object
         uint32_t mPlayerID; //0xA8
         uint32_t mPadAC; //0xAC
         uint32_t mBodyID; //mush::EBodyID 0xB0
-        uint32_t mDriveRID; //mush::EDriverID 0xB4
+        uint32_t mDriverID; //mush::EDriverID 0xB4
         uint8_t mPadB8[0x10]; //0xB8 - 0xC7
         uint32_t mTeamType; //gear::ETeamType 0xC8
         uint32_t mPadCC; //0xCC

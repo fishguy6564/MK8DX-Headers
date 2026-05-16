@@ -53,12 +53,12 @@ namespace gear
             virtual eui::LayoutEx* doCreateLayout_(sead::Heap *) override; //0x28
             virtual void doSetupDrawInfo_(void) override {}; //0x30
             virtual void doCreateUIController_(sead::Heap *) override {}; //0x38
-            virtual void doCreateResourceAccessor_(sead::Heap *) override {}; //0x40
+            virtual void doCreateResourceAccessor_(sead::Heap *) override {}; //0xC0
             virtual void doCreateTagProcessor_(sead::Heap *) override {}; //0x48
             virtual void doBuildLayout_(sead::SafeStringBase<char> const&, nn::ui2d::ResourceAccessor *) override {}; //0x50
             virtual void doLoadResource_(sead::Heap *) override {}; //0x58
             virtual void updateButton_(void) override {}; //0x60
-            virtual void updateControl_(void) override {}; //0xC4
+            virtual void updateControl_(void) override {}; //0x188
             virtual void onDialogUpdateRun_(ui::Page_Dialog &) {}; //0x10C
             virtual void onDialogComplete_(ui::Page_Dialog &) {}; //0x110
             virtual void onDialogEnd_(ui::Page_Dialog &) {}; //0x114
@@ -85,6 +85,14 @@ namespace gear
             virtual void onHandler_(gear::UIEvent const&); //0x168
             virtual void onUpdate_(void) {}; //0x16C
             virtual void onPrepare_(void) {}; //0x170
+
+            static inline sead::RuntimeTypeInfo::Interface** sInfo = nullptr;
+            
+            static inline const sead::RuntimeTypeInfo::Interface* getRuntimeTypeInfoStatic() {
+                return reinterpret_cast<sead::RuntimeTypeInfo::Interface*>(
+                    *reinterpret_cast<uintptr_t*>(sInfo)
+                );
+            }
 
             EUIPageID mPageId; //0xE8
             uint32_t mPadEC; // 0xEC

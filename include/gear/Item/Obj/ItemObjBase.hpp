@@ -1,3 +1,5 @@
+#pragma once
+
 #include <gear/Actor/Actor.hpp>
 #include <gear/ArgumentObj.hpp>
 
@@ -24,7 +26,7 @@ namespace gear
             virtual void getRuntimeTypeInfo(void)const {}; // 0x08
             virtual ~ItemObjBase() {}; // 0x10, 0x18
             virtual void prepare(gear::ArgumentObj const*) {}; // 0x20
-            virtual void calcImpl_() {}; // 0x28
+            virtual void enter() {}; // 0x28
             virtual void calc() {}; // 0x30
             virtual f32 getScale()const; //defined 0x3C
             virtual void calcRecorder() {}; //defined 0x40

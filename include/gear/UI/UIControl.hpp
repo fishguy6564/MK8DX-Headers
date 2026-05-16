@@ -6,6 +6,7 @@
 #include <prim/seadSafeString.h>
 #include <prim/seadRuntimeTypeInfo.h>
 #include <container/seadBuffer.h>
+#include <container/seadPtrArray.h>
 
 #include <nn/ui2d/Layout.h>
 #include <_nn/ui2d/Layout.hpp>
@@ -15,6 +16,8 @@
 #include "UILoader.hpp"
 #include "UIEvent.hpp"
 
+#include <gear/UI/Input/UICursor.hpp>
+
 namespace eui
 {
     class ControlBase;
@@ -22,6 +25,7 @@ namespace eui
 
 namespace gear
 {
+    class UIPage;
     class UIControl
     {
     public:
@@ -45,19 +49,15 @@ namespace gear
         eui::LayoutEx* mLayout; //0x10
         uint32_t mUUID; //0x18
         uint32_t mPad1C; //0x1C
-        UIControl* mRootUIControl; //0x20
+        UIPage* mPage; //0x20
         uintptr_t mPad18; //0x28
         UILoader* mUILoader; //0x30
         sead::Buffer<gear::UIAnimator*> mAnimators; // 0x38
-        uint32_t mPad48; //0x48
-        uint32_t mPad4C; //0x4C
-        uint32_t mPad50; //0x50
-        uint32_t mPad54; //0x54
+        sead::PtrArrayImpl mInputBuff; // 0x48
         uint32_t mInteractionStatus; //0x58
         uint32_t mPad5C; //0x5C
-        uint32_t mPad60; //0x60
-        uint32_t mPad64; //0x64
-        uint32_t mControlIndex; //0x68
+        UICursor* mCursor; // 0x60
+        uint32_t mCursorIndex; //0x68
         uint32_t mPad6C; // 0x6C
         uint32_t mPad70; //0x70
         uint32_t mPad74; //0x74

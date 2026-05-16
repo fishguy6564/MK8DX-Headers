@@ -18,7 +18,7 @@ namespace gear
             virtual void getRuntimeTypeInfo(void)const {}; //0x08
             virtual ~Actor() {}; //0x10, 0x18
             virtual void prepare(gear::ArgumentObj const*) {}; //0x20
-            virtual void calcImpl_() {}; //0x28
+            virtual void enter() {}; //0x28
             virtual void calc() {}; //0x30
             virtual void render(agl::lyr::RenderInfo const&)const {}; //0x38
             virtual void exit() {}; //0x40
