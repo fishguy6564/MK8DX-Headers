@@ -1,6 +1,7 @@
 #pragma once
 
 #include "FrameworkGameScene.hpp"
+#include "FrameworkRootSceneBase.hpp"
 
 namespace gear
 {
@@ -8,5 +9,6 @@ namespace gear
     {
     public:
         static FrameworkGameScene* getCurrentGameScene();
+        static FrameworkRootSceneBase* getRootSceneBase();
     };
 }

@@ -25,5 +25,7 @@ namespace ui
         uint8_t mPad17C[0x24C];             // 0x17C
         uint16_t mPad3C8;                   // 0x3C8
         bool mPad3CA;                       // 0x3CA
+
+        Control_Button();
     };
 }
