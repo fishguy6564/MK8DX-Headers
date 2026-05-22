@@ -9,7 +9,7 @@
 class GameAllocator
 {
 public:
-    static void* alloc(unsigned int size);
+    static void* alloc(unsigned long size);
     // static void* operator new[](size_t size);
     static void* alloc(unsigned int size, const std::nothrow_t&) noexcept;
     // static void* operator new[](size_t size, const std::nothrow_t&) noexcept;
@@ -32,7 +32,7 @@ class SeadGameAllocator
 {
     public:
         static void* operator new(size_t size) {
-            return GameAllocator::alloc(static_cast<unsigned int>(size));
+            return GameAllocator::alloc(size);
         }
         static void* operator new[](size_t size);
         static void* operator new(size_t size, const std::nothrow_t& t) noexcept {

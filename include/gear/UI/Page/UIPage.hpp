@@ -46,45 +46,45 @@ namespace gear
                     ~EControlType() {}
             };
 
-            virtual ~UIPage() {}; //0x00, 0x08
-            virtual bool checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const override; //0x10
-            virtual sead::RuntimeTypeInfo::Interface const* getRuntimeTypeInfo(void)const override; //0x18
-            virtual const char* getLayoutName_(void)const override { return "cm_Page_Dummy"; }; //0x20
-            virtual eui::LayoutEx* doCreateLayout_(sead::Heap *) override; //0x28
-            virtual void doSetupDrawInfo_(void) override {}; //0x30
-            virtual void doCreateUIController_(sead::Heap *) override {}; //0x38
-            virtual void doCreateResourceAccessor_(sead::Heap *) override {}; //0xC0
-            virtual void doCreateTagProcessor_(sead::Heap *) override {}; //0x48
-            virtual void doBuildLayout_(sead::SafeStringBase<char> const&, nn::ui2d::ResourceAccessor *) override {}; //0x50
-            virtual void doLoadResource_(sead::Heap *) override {}; //0x58
-            virtual void updateButton_(void) override {}; //0x60
-            virtual void updateControl_(void) override {}; //0x188
-            virtual void onDialogUpdateRun_(ui::Page_Dialog &) {}; //0x10C
-            virtual void onDialogComplete_(ui::Page_Dialog &) {}; //0x110
-            virtual void onDialogEnd_(ui::Page_Dialog &) {}; //0x114
-            virtual void onDialogSeq_(ui::Page_Dialog &) {}; //0x118
-            virtual void onDialogSeqEnd_(ui::Page_Dialog &) {}; //0x11C
-            virtual void onCreateCursor_(void) {}; //0x120
-            virtual void onCreate_(void) {}; //0x124
-            virtual void onInit_(void) {}; //0x128
-            virtual void onIn_(void) {}; //0x12C
-            virtual void onRun_(void) {}; //0x130  0x49865C
-            virtual void onOpen_(gear::UIFlow const&) {}; //0x134
-            virtual void onClose_(gear::UIFlow const&) {}; //0x138
-            virtual void onComplete_(void) {}; //0x13C
-            virtual void onOut_(void) {}; //0x140 0x43AFF0
-            virtual void onExit_(void) {}; //0x144 0x498660
-            virtual void onDetach_(void) {}; //0x148
-            virtual void onUpdateIn_(void) {}; //0x14C
-            virtual void onUpdateRun_(void) {}; //0x150
-            virtual void onUpdateComplete_(void) {}; //0x154
-            virtual void onUpdateOut_(void) {}; //0x158 0x43AFF4
-            virtual void onStateSub_(void) {}; //0x15C 0x43AFF8
-            virtual void onCalc_(void) {}; //0x160 
-            virtual void onInput_(void) {}; //0x164 0x43AFFC
-            virtual void onHandler_(gear::UIEvent const&); //0x168
-            virtual void onUpdate_(void) {}; //0x16C
-            virtual void onPrepare_(void) {}; //0x170
+            virtual ~UIPage() {}; //0x00, 0x08!
+            virtual bool checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const override; //0x10!
+            virtual sead::RuntimeTypeInfo::Interface const* getRuntimeTypeInfo(void)const override; //0x18!
+            virtual const char* getLayoutName_(void)const override { return "cm_Page_Dummy"; }; //0x20!
+            virtual eui::LayoutEx* doCreateLayout_(sead::Heap *) override; //0x28!
+            virtual void doSetupDrawInfo_(void) override; //0x30!
+            virtual void doCreateUIController_(sead::Heap *) override; //0x38!
+            virtual void doCreateResourceAccessor_(sead::Heap *) override; //0x40!
+            virtual void doCreateTagProcessor_(sead::Heap *) override; //0x48!
+            virtual void doBuildLayout_(sead::SafeStringBase<char> const&, nn::ui2d::ResourceAccessor *) override; //0x50!
+            virtual void doLoadResource_(sead::Heap *) override; //0x58!
+            virtual void updateButton_(void) override {}; //0x60!
+            virtual void updateControl_(void) override; //0x188!
+            virtual void onDialogUpdateRun_(ui::Page_Dialog &) {}; //0x10C!
+            virtual void onDialogComplete_(ui::Page_Dialog &) {}; //0x110!
+            virtual void onDialogEnd_(ui::Page_Dialog &) {}; //0x114!
+            virtual void onDialogSeq_(ui::Page_Dialog &) {}; //0x118!
+            virtual void onDialogSeqEnd_(ui::Page_Dialog &) {}; //0x11C!
+            virtual void onCreateCursor_(void); //0x120!
+            virtual void onCreate_(void) {}; //0x124!
+            virtual void onInit_(void) {}; //0x128!
+            virtual void onIn_(void) {}; //0x12C!
+            virtual void onRun_(void) {}; //0x130!
+            virtual void onOpen_(gear::UIFlow const&) {}; //0x134!
+            virtual void onClose_(gear::UIFlow const&) {}; //0x138!
+            virtual void onComplete_(void) {}; //0x13C!
+            virtual void onOut_(void) {}; //0x140!
+            virtual void onExit_(void) {}; //0x144!
+            virtual void onDetach_(void) {}; //0x148!
+            virtual void onUpdateIn_(void); //0x14C!
+            virtual void onUpdateRun_(void) {}; //0x150!
+            virtual void onUpdateComplete_(void); //0x154!
+            virtual void onUpdateOut_(void); //0x158!
+            virtual void onStateSub_(void) {}; //0x15C!
+            virtual void onCalc_(void) {}; //0x160!
+            virtual void onInput_(void) {}; //0x164!
+            virtual void onHandler_(gear::UIEvent const&); //0x168!
+            virtual void onUpdate_(void) {}; //0x16C!
+            virtual void onPrepare_(void) {}; //0x170!
 
             static inline sead::RuntimeTypeInfo::Interface** sInfo = nullptr;
             

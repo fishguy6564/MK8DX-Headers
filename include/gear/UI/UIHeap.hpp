@@ -8,6 +8,8 @@
 #include <ui/Course/UICourseTex.hpp>
 #include <ui/Heap_CommonInfo.hpp>
 
+#include <gear/UI/Page/EUIPageID.hpp>
+
 namespace gear
 {
     class UIHeap
@@ -25,6 +27,8 @@ namespace gear
         void init();
 
         void freeImpl_(bool);
+
+        void createPageImpl_(gear::EUIPageID,unsigned char);
     };
 
     UIHeap* GetUIHeap(gear::EUIHeapID);
