@@ -1,11 +1,12 @@
 #pragma once
 
 #include <cstdint>
-#include "prim/seadRuntimeTypeInfo.h"
+#include <prim/seadRuntimeTypeInfo.h>
+#include <sead/basis/seadNewWrapper.hpp>
 
 namespace gear
 {
-    class UIFlow
+    class UIFlow : public SeadGameAllocator, public SeadGameDeallocator
     {
         public:
             class EDir
@@ -27,12 +28,12 @@ namespace gear
                     ~EDir() {}
             };
 
-            virtual void checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const {}; //0x00
-            virtual void getRuntimeTypeInfo(void)const {}; //0x04
-            virtual void start() {}; //0x08
-            virtual void prevExit() {}; //0x0C
-            virtual void nextRun() {}; //0x10
-            virtual void onStart_() {}; //0x14
+            virtual void checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const {}; //0x00!
+            virtual void getRuntimeTypeInfo(void)const {}; //0x04!
+            virtual void start() {}; //0x08!
+            virtual void prevExit() {}; //0x0C!
+            virtual void nextRun() {}; //0x10!
+            virtual void onStart_() { return; }; //0x14!
             virtual void onPrevComplete_() { return; }; //0x18
             virtual bool onWaitComplete_() { return false; }; //0x1C
             virtual void onPrevOut_() { return; }; //0x20
@@ -43,7 +44,9 @@ namespace gear
             virtual void onNextRun_() { return; }; //0x34
             virtual void onNextExit_() { return; }; //0x38
 
-            char mPad08[0x20];
+            uint8_t mPad08[0x1D]; // 0x08
+            uint8_t mFlag25; // 0x25
+            uint8_t mPad26[0x2]; // 0x26
 
             UIFlow();
     };
