@@ -141,6 +141,6 @@ namespace enl
         virtual T* getSendData() = 0; // VTable - 0x150
         virtual const T* getSendData() const = 0; // VTable - 0x158
 
-        ContentTransporterCommon(uint8_t contentId)();
+        ContentTransporterCommon(uint8_t contentId);
     };
 }
