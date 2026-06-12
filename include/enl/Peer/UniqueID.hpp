@@ -12,9 +12,10 @@ namespace enl {
     class UniqueID
     {
     public:
-        int32_t mStationId; // 0x00
-        uint8_t mPlayerId; // 0x04
-        uint8_t mPad05; // 0x05
+        uint64_t mStationId; // 0x00
+        uint8_t mPlayerId; // 0x08
+        uint8_t mPad09; // 0x09
+        uint8_t mPad0A[0x6]; // 0x0A
 
     public:
         inline bool isStationValid() {
@@ -22,17 +23,13 @@ namespace enl {
         }
 
         inline bool isFullyEqual(const UniqueID& rhs) const {
-            return (this->mStationId == rhs.mStationId) && (this->mPlayerId == rhs.mPlayerId) && (this->mPad05 == rhs.mPad05);
+            return (this->mStationId == rhs.mStationId) && (this->mPlayerId == rhs.mPlayerId) && (this->mPad09 == rhs.mPad09);
         }
 
         friend bool operator==(const UniqueID& lhs, const UniqueID& rhs) {
-            return (lhs.mStationId == rhs.mStationId) && (lhs.mPlayerId == rhs.mPlayerId);
+            return (lhs.mStationId == rhs.mStationId) && (lhs.mPlayerId == rhs.mPlayerId) && (lhs.mPad09 == rhs.mPad09);
         }
 
-        UniqueID() {
-            mStationId = 253;
-            mPlayerId = 0;
-            mPad05 = 0;
-        }
+        UniqueID() = default;
     };
 }

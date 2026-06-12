@@ -20,12 +20,13 @@ public:
     // static void* operator new[](size_t size, s32 alignment, const std::nothrow_t&) noexcept;
 
     static void* alloc(unsigned int size, sead::Heap* heap, const std::nothrow_t&) noexcept;
-    // static void* operator new[](size_t size, sead::Heap* heap, const std::nothrow_t&) noexcept;
+    static void* allocArray(unsigned int size, sead::Heap* heap, const std::nothrow_t&) noexcept;
 
-    static void* alloc(unsigned int size, sead::Heap* heap, int alignment = 4);
-    // static void* operator new[](size_t size, sead::Heap* heap, int alignment = 4);
+    static void* alloc(unsigned int size, sead::Heap* heap, int alignment = 4) noexcept;
+    static void* allocArray(unsigned int size, sead::Heap* heap, int alignment = 4) noexcept;
+
     static void* alloc(unsigned int size, sead::Heap* heap, int alignment, const std::nothrow_t&) noexcept;
-    // static void* operator new[](size_t size, sead::Heap* heap, int alignment, const std::nothrow_t&) noexcept;
+    static void* allocArray(unsigned int size, sead::Heap* heap, int alignment, const std::nothrow_t&) noexcept;
 };
 
 class SeadGameAllocator
@@ -57,11 +58,15 @@ class SeadGameAllocator
         static void* operator new(size_t size, sead::Heap* heap, int alignment = 4) {
             return GameAllocator::alloc(static_cast<unsigned int>(size), heap, alignment);
         }
-        static void* operator new[](size_t size, sead::Heap* heap, int alignment = 4);
-        static void* operator new(size_t size, sead::Heap* heap, int alignment, const std::nothrow_t& t) noexcept {
-            return GameAllocator::alloc(static_cast<unsigned int>(size), alignment, t);
+        static void* operator new[](size_t size, sead::Heap* heap, int alignment = 4) {
+            return GameAllocator::allocArray(size, heap, alignment);
         }
-        static void* operator new[](size_t size, sead::Heap* heap, int alignment, const std::nothrow_t&) noexcept;
+        static void* operator new(size_t size, sead::Heap* heap, int alignment, const std::nothrow_t& t) noexcept {
+            return GameAllocator::alloc(static_cast<unsigned int>(size), heap, alignment, t);
+        }
+        static void* operator new[](size_t size, sead::Heap* heap, int alignment, const std::nothrow_t& t) noexcept {
+            return GameAllocator::allocArray(static_cast<unsigned int>(size), heap, alignment, t);
+        }
 };
 
 class SeadGameDeallocator
