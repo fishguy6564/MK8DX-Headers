@@ -11,9 +11,14 @@ namespace gear
                 TYPE_00,
                 TYPE_01,
                 TYPE_02,
-                UIHeap_Common,
+                UIHeap_Common, //3
                 TYPE_04,
-                UIHeap_MenuSub
+                UIHeap_MenuSub, //5
+                TYPE_06,
+                TYPE_07,
+                TYPE_08,
+                TYPE_09,
+                TYPE_0A,
             };
 
             EUIHeapID_ mValue;

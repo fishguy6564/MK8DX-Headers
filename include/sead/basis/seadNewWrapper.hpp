@@ -118,7 +118,7 @@ T* seadNewArray(const std::nothrow_t& t, size_t size = sizeof(T)) noexcept
 template <typename T>
 T* seadNew(s32 alignment, size_t size = sizeof(T))
 {
-    return SeadGameAllocator::operator new(size, alignment);
+    return reinterpret_cast<T*>(SeadGameAllocator::operator new(size, alignment));
 }
 
 template <typename T>
