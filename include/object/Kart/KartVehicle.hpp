@@ -119,7 +119,7 @@ namespace object
         uint32_t mBattleMutekiFlashCount; //0x250
         bool mIsDontSearch; //0x254
         uint8_t mPad255[3]; //0x255 - 0x257
-        uint32_t mLakituFrames; //0x258
+        uint32_t mAirCountForJugem; //0x258
         uint32_t mPrisonIndex; //0x25C
         float mKillerEndRatio; //0x260
         uint8_t mPad264[0xC]; //0x264 - 0x26F
@@ -129,8 +129,8 @@ namespace object
         uint8_t mPad27C[0x1C]; //0x27C - 0x297
         uint32_t mRaceMutekiCount; //0x298
         uint8_t mPad29C[0x88]; //0x29C - 0x323
-        uint32_t mCaughtCount; //0x324
-        uint32_t mCaughtToPrisonTime; //0x328
+        uint32_t mToPrisonCount; //0x324
+        uint32_t mToPrisonTime; //0x328
         uint8_t mPad32C[8]; //0x32C - 0x333
         uint32_t mJugemStuckCount; //0x334
         uint32_t mPad338; //0x338
