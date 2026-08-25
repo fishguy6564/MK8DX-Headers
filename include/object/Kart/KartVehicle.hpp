@@ -63,7 +63,7 @@ namespace object
         uint8_t mPadD5[3]; //0xD5-0xD7
         bool mIsBike; //0xD8
         bool mIsHangOnBike; //0xD9
-        bool mIsHangOnBike; //0xDA
+        bool mIsHangOnBike_; //0xDA
         bool mIsBikeRideType; //0xDB
         bool mIsATVRideType; //0xDC
         bool mIsTrike; //0xDD
