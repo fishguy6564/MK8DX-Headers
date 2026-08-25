@@ -92,7 +92,7 @@ namespace object
         float mAntiGEmissionFrame; //0x1C4
         uint32_t mPad1C8; //0x1C8
         uint32_t mKartStatusBits; //0x1CC
-        uint32_t mKartFrame; //0x1D0
+        uint32_t mKartFrames; //0x1D0
         uint8_t mPad1D4[8]; //0x1D4 - 0x1DB
         float mAntiGTransFrame; //0x1DC
         float mStartCharge; //0x1E0
@@ -130,7 +130,7 @@ namespace object
         uint32_t mRaceInvincibilityFrames; //0x298
         uint8_t mPad29C[0x88]; //0x29C - 0x323
         uint32_t mRenegadeCaughtFrames; //0x324
-        uint32_t mRenegadeCaughtToPrisonTime; //0x328
+        uint32_t mCaughtRenegadeToPrisonTime; //0x328
         uint8_t mPad32C[8]; //0x32C - 0x333
         uint32_t mJugemStuckCount; //0x334
         uint32_t mPad338; //0x338
