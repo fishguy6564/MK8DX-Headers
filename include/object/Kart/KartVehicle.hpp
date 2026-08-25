@@ -92,34 +92,34 @@ namespace object
         float mAntiGEmissionFrame; //0x1C4
         uint32_t mPad1C8; //0x1C8
         uint32_t mKartStatusBits; //0x1CC
-        uint32_t mKartFrames; //0x1D0
-        uint8_t mPad1D4[0x08]; //0x1D4 - 0x1DB
+        uint32_t mKartFrame; //0x1D0
+        uint8_t mPad1D4[8]; //0x1D4 - 0x1DB
         float mAntiGTransFrame; //0x1DC
         float mStartCharge; //0x1E0
-        uint32_t mStarCount; //0x1E4
-        uint32_t mGessoCount; //0x1E8
-        int32_t mTeresaCount; //0x1EC
+        uint32_t mStarFrames; //0x1E4
+        uint32_t mGessoFrames; //0x1E8
+        int32_t mTeresaFrames; //0x1EC
         uint32_t mPad1F0; //0x1F0
         int mJumpActionType; //0x1F4
         uint8_t mPad1F8[8]; //0x1F8 - 0x1FF
-        uint32_t mTrickCountLeft; //0x200
-        uint32_t mTrickCount; //0x204
+        uint32_t mTrickFramesLeft; //0x200
+        uint32_t mTrickFrames; //0x204
         uint8_t mPad208[0x14]; //0x208 - 0x21B
-        uint32_t mPressCount; //0x21C
+        uint32_t mPressFrames; //0x21C
         float mPressScale; //0x220
-        uint32_t mThunderCount; //0x224
+        uint32_t mThunderFrames; //0x224
         float mThunderScale; //0x228
         uint32_t mPad22C; //0x22C
-        uint32_t mSlipstreamChargeCount; //0x230
-        uint32_t mSlipstreamDashCount; //0x234
-        uint8_t mPad238[0x0C]; //0x238 - 0x243
-        uint32_t mControlLockCount; //0x244
-        uint32_t mBattleMutekiCount; //0x248
+        uint32_t mSlipstreamChargeFrames; //0x230
+        uint32_t mSlipstreamDashFrames; //0x234
+        uint8_t mPad238[0xC]; //0x238 - 0x243
+        uint32_t mControlLockFrames; //0x244
+        uint32_t mBattleInvincibilityFrames; //0x248
         uint32_t mPad24C; //0x24C
-        uint32_t mBattleMutekiFlashCount; //0x250
+        uint32_t mBlinkVisualFrames; //0x250
         bool mIsDontSearch; //0x254
         uint8_t mPad255[3]; //0x255 - 0x257
-        uint32_t mAirCountForJugem; //0x258
+        uint32_t mAirFramesForJugem; //0x258
         uint32_t mPrisonIndex; //0x25C
         float mKillerEndRatio; //0x260
         uint8_t mPad264[0xC]; //0x264 - 0x26F
@@ -127,10 +127,10 @@ namespace object
         uint8_t mPad271[7]; //0x271 - 0x277
         float mXluAlpha; //0x278
         uint8_t mPad27C[0x1C]; //0x27C - 0x297
-        uint32_t mRaceMutekiCount; //0x298
+        uint32_t mRaceInvincibilityFrames; //0x298
         uint8_t mPad29C[0x88]; //0x29C - 0x323
-        uint32_t mToPrisonCount; //0x324
-        uint32_t mToPrisonTime; //0x328
+        uint32_t mRenegadeCaughtFrames; //0x324
+        uint32_t mRenegadeCaughtToPrisonTime; //0x328
         uint8_t mPad32C[8]; //0x32C - 0x333
         uint32_t mJugemStuckCount; //0x334
         uint32_t mPad338; //0x338
