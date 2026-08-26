@@ -2,15 +2,20 @@
 
 #include <cstdint>
 
+#include <gear/Ghost/RaceTime.hpp>
+#include <prim/seadSafeString.h>
+
 namespace gear
 {
     class PlayerInfo
     {
     public:
-        uint8_t mPad00[0x1E]; // 0x00
-        uint8_t mDecidedCourseId; // 0x1E
-        uint8_t mPad1F[0x11]; // 0x1F
+        uint8_t mPad00[0x70];
+        uint8_t mCountry[2]; // 0x70
+        uint8_t mPad72[0x5E]; // 0x72
+        char16_t mPlayerName[21]; // 0xD0
+        uint8_t mPadFA[0x06]; // 0xFA
 
-        PlayerInfo() = default;
+        // PlayerInfo() {}
     };
 }

@@ -5,6 +5,7 @@
 #include <object/Race/RaceDirector.hpp>
 #include <object/Kart/KartDirector.hpp>
 #include <object/Effect/GameEffectDirector.hpp>
+#include <object/Directors/RecorderDirector.hpp>
 
 #include <gear/Course/FieldDirector.hpp>
 #include <gear/Item/ItemDirector.hpp>
@@ -19,7 +20,7 @@ namespace object
             object::RaceDirector* mRaceDirector; //0x218
             gear::FieldDirector* mFieldDirector; //0x220
             uintptr_t mPad228; //0x228
-            uintptr_t mPad230; //0x230
+            object::RecorderDirector* mRecorderDirector; //0x230
             object::KartDirector* mKartDirector; //0x238
             gear::ItemDirector* mItemDirector; //0x240
             uintptr_t mPad248; //0x248

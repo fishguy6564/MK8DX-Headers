@@ -8,6 +8,9 @@
 #include <container/seadBuffer.h>
 #include <container/seadPtrArray.h>
 
+#include <math/seadVector.h>
+// #include <math/seadVector.hpp>
+
 #include <nn/ui2d/Layout.h>
 #include <_nn/ui2d/Layout.hpp>
 #include <_nn/ui2d/TextureInfo.h>
@@ -84,6 +87,10 @@ namespace gear
 
         nn::ui2d::Pane* loadTexture(sead::SafeStringBase<char> const&)const;
         nn::ui2d::Pane* getTexture(sead::SafeStringBase<char> const&)const;
+
+        void setVisible(bool);
+
+        void setPos(sead::Vector3<float> const&);
 
         static void* operator new(size_t size) {
             return _ZN2nn4ui2d6Layout14AllocateMemoryEjj(size, 4);

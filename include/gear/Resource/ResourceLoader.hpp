@@ -20,8 +20,8 @@ namespace gear
             bool mFlag1D = false;                    // 0x1D
             bool mFlag1E = false;                    // 0x1E
             uint8_t mPad1F = 0;                      // 0x1F
-            uintptr_t mFactory = 0;                  // 0x20
-            uint32_t mPad28 = 0;                     // 0x28
+            void* mDestBuff = nullptr;               // 0x20
+            uint32_t mCapacity = 0;                  // 0x28
             uint32_t mPad2C = 0;                     // 0x2C
         };
 
