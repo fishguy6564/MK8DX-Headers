@@ -68,7 +68,7 @@ namespace object
         bool mIsATVRideType; //0xDC
         bool mIsTrike; //0xDD
         bool mIsTrikeR; //0xDE
-        uint8_t mPadDA[7]; //0xDA-0xE0
+        uint8_t mPadDF[2]; //0xDF-0xE0
         bool mIsEnableRun; //0xE1
         uint8_t mPadE2[3]; //0xE2 - 0xE4
         bool mIsNetVS; //0xE5
