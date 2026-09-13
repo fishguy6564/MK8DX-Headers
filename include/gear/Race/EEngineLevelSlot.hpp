@@ -8,7 +8,12 @@ namespace gear
         public:
             enum EEngineLevelSlot_ : int32_t
             {
-                //
+                Invalid=-1,
+                CC50,
+                CC100,
+                CC150,
+                CC200,
+                Mirror
             };
 
             EEngineLevelSlot_ mValue;

@@ -25,7 +25,8 @@ namespace gear
             bool mIsDownloaded; // 0x08
             bool mIsFastGhost; // 0x09
             bool mSkipCreate; // 0x0A
-            uint8_t mPad0B[5]; // 0x0B
+            uint8_t mPad0B; // 0x0B
+            uint8_t mPad0C[4]; // 0x0C
 
             void getFileName(sead::BufferedSafeStringBase<char> *)const;
 
@@ -40,6 +41,7 @@ namespace gear
             uint8_t mIsDL; // 0x08
             uint8_t mIsFastGhost; // 0x09
             uint8_t mPad0A; // 0x0A
+            uint8_t mPad0B; // 0x0B
 
             LoadGhostParam() {}
         };
@@ -50,6 +52,8 @@ namespace gear
             int32_t mCourseId; // 0x00
             uint8_t mIsDL; // 0x04;
             uint8_t mIsFastGhost; // 0x05
+            uint8_t mPad06; // 0x06
+            uint8_t mPad07; // 0x07
             RemoveGhostParam() {}
         };
 

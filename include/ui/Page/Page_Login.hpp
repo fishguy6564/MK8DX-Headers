@@ -18,5 +18,7 @@ namespace ui
         uint8_t mPad1E7; // 0x1E7
         uintptr_t mPad1E8; // 0x1E8
         uint8_t mPad1F0[8]; // 0x1F0
+
+        void startLogin();
     };
 }
