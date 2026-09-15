@@ -3,6 +3,8 @@
 #include <prim/seadSafeString.h>
 #include <heap/seadHeap.h>
 
+#include <filedevice/seadFileDevice.h>
+
 #include "ResourceBase.hpp"
 
 namespace gear
@@ -24,6 +26,9 @@ namespace gear
             uint32_t mCapacity = 0;                  // 0x28
             uint32_t mPad2C = 0;                     // 0x2C
         };
+
+        uint8_t mPad30[0x1B0];                   // 0x00
+        sead::FileDevice* mFileDevice;           // 0x1B0
 
         template<typename T>
         T* loadAsCommon_(const sead::SafeStringBase<char>& path, const LoadArg& arg);

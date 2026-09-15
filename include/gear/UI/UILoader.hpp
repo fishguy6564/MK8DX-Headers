@@ -9,6 +9,7 @@
 #include "EResourceCategory.hpp"
 
 #include <gear/UI/UIArchive.hpp>
+#include <filedevice/seadFileDevice.h>
 
 namespace gear
 {
@@ -25,6 +26,9 @@ namespace gear
         sead::Heap* mHeap; // 0x68
 
         UILoader();
+
+        void loadSarc(sead::SafeStringBase<char> const&);
+        void loadSzs_(sead::SafeStringBase<char> const&,uint32_t,sead::FileHandle *,uint8_t *,uint32_t,bool);
 
         nn::ui2d::TextureInfo* loadTexture(sead::SafeStringBase<char> const&,bool,gear::EResourceCategory);
     };
