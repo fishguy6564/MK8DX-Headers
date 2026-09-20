@@ -31,5 +31,7 @@ namespace gear
         void loadSzs_(sead::SafeStringBase<char> const&,uint32_t,sead::FileHandle *,uint8_t *,uint32_t,bool);
 
         nn::ui2d::TextureInfo* loadTexture(sead::SafeStringBase<char> const&,bool,gear::EResourceCategory);
+
+        static void* findArc(const sead::SafeStringBase<char>&);
     };
 }

@@ -115,8 +115,8 @@ namespace eui
             eui::LayoutEx* mLayoutEx; //0x28
             eui::ButtonGroup* mButtonGroup; //0x30
 
-            sead::ListNode mDisposeList1; // 0x38
-            sead::ListNode mDisposeList2; // 0x48
+            sead::ListNode mControl0; // 0x38
+            sead::ListNode mControl1; // 0x48
 
             eui::UIController* mUIController; //0x58
             nn::ui2d::DrawInfo* mDrawInfo; //0x60

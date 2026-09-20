@@ -82,6 +82,8 @@ namespace gear
         void setLayout(eui::LayoutEx* layout);
         gear::UIAnimator* createAnimator_(unsigned int, unsigned int);
 
+        void applyAnim(void);
+
         nn::ui2d::Pane* findPane(sead::SafeStringBase<char> const&)const;
         nn::ui2d::Pane* findPane(nn::ui2d::Pane* inPane, sead::SafeStringBase<char> const& str);
 

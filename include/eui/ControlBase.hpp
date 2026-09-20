@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <prim/seadRuntimeTypeInfo.h>
+#include <container/seadListImpl.h>
 
 namespace gear
 {
@@ -18,8 +19,7 @@ namespace eui
             virtual ~ControlBase() = default; //0x10
             virtual void Update(float) {}; //0x18
 
-            uintptr_t unkptr0; // 0x08
-            uintptr_t* layout; //0x10
+            sead::ListNode mLink; // 0x08
             int32_t mPad18; //0x18
             int32_t mPad20; //0x20
             int32_t mPad24; //0x24
