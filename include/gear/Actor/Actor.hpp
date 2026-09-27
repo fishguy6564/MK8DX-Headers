@@ -11,7 +11,7 @@
 
 namespace gear
 {
-    class Actor : public sead::hostio::Node, public SeadGameDeallocator
+    class Actor : public SeadGameDeallocator
     {
         public:
             virtual void checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const {}; //0x00

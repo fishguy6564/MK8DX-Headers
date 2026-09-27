@@ -15,11 +15,16 @@ namespace gear
             float M22; //0x10
             float M23; //0x14
             float M31; //0x18
-            float M32; //0x2C
+            float M32; //0x1C
             float M33; //0x20
 
             void out(sead::Quat<float> *)const;
-            void idenity();
+
+            inline void idenity() {
+                M11 = 1.0f; M12 = 0.0f; M13 = 0.0f;
+                M21 = 0.0f; M22 = 1.0f; M23 = 0.0f;
+                M31 = 0.0f; M32 = 0.0f; M33 = 1.0f;
+            }
     };
 
     class MtxT

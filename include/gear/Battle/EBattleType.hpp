@@ -6,7 +6,7 @@ namespace gear
     enum EBattleType : int32_t
     {
         Coin,
-        Nalloon,
+        Balloon,
         Keidoro,
         Bomb,
         Shine,
