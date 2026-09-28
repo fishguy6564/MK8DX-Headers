@@ -110,7 +110,8 @@ namespace gear
 
         uint8_t mPad128[0x88]; // 0x128
         MapObjDrawManager* mDrawManager; // 0x1B0
-        uintptr_t mPad1B8; // 0x1B8
+        int32_t mDrawManagerIndex; // 0x1B8
+        int32_t mPad1BC; // 0x1BC
         sead::FixedRingBuffer<int16_t, 8> mRouteGroup; // 0x1C0
         uint8_t mPad1E8[0x10]; // 0x1B8
     };

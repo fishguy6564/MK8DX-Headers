@@ -3,6 +3,8 @@
 #include <nn/gfx/gfx_Types.h>
 #include <nn/types.h>
 
+#include <nn/gfx/gfx_ResUserData.h>
+
 #include <_nn/g3d/ResUserData.h>
 
 /*
@@ -25,7 +27,7 @@ namespace nn::g3d {
         void Reset();
         void Reset(u32);
         nn::g3d::ResMaterial* FindMaterial(char const* materialName) const;
-        nn::g3d::ResUserData* FindUserData(const char* name) const;
+        nn::gfx::ResUserData* FindUserData(const char* name) const;
 
         u8 _0[0x70];
     };
