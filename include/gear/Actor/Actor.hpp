@@ -11,11 +11,16 @@
 
 namespace gear
 {
-    class Actor : public SeadGameDeallocator
+    // Inherits sead::hostio::Node: the constructor (0x71000001b4) calls a
+    // base ctor with its own vtable before writing Actor's, and the vtable
+    // at .data:0x11ad018 is followed by a second sub-vtable at 0x11ad098 —
+    // multiple inheritance, matching the sead hostio base.
+    class Actor : public sead::hostio::Node, public SeadGameDeallocator
     {
         public:
-            virtual void checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const {}; //0x00
-            virtual void getRuntimeTypeInfo(void)const {}; //0x08
+            virtual bool checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*) const { return false; }; //0x00
+            virtual sead::RuntimeTypeInfo::Interface const* getRuntimeTypeInfo() const { return nullptr; }; //0x08
+            static sead::RuntimeTypeInfo::Interface const* getRuntimeTypeInfoStatic();
             virtual ~Actor() {}; //0x10, 0x18
             virtual void prepare(gear::ArgumentObj const*) {}; //0x20
             virtual void enter() {}; //0x28
