@@ -30,7 +30,7 @@ namespace gear
     class MtxT
     {
         public:
-            AttT mRotation;
+            AttT mAttitude;
             sead::Vector3<float> mTranslation;
 
             void identity();

@@ -34,8 +34,19 @@ namespace gear
             
             const char* text_(int);
 
+            EItemType() : mValue(EItemType_::None) {}
             EItemType(EItemType_ item) : mValue(item) {}
             EItemType(int32_t item) : mValue(static_cast<EItemType_>(item)) {}
+
+            constexpr operator EItemType_() const { return mValue; }
+
+            bool operator==(const EItemType& other) const {
+                return this->mValue == other.mValue;
+            }
+
+            bool operator==(const int32_t other) const {
+                return this->mValue == other;
+            }
 
             ~EItemType() {}
     };

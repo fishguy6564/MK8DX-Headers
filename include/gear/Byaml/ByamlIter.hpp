@@ -8,6 +8,9 @@ namespace gear
     class ByamlIter
     {
         public:
+            uintptr_t mPad00;
+            uintptr_t mPad08;
+
             ByamlIter();
             ByamlIter(unsigned char const*);
             ByamlIter(gear::ByamlIter const&);
@@ -19,6 +22,8 @@ namespace gear
             bool tryGetStringByKey(char const**, char const*)const;
             bool tryGetIntByKey(int *, char const*)const;
             bool tryGetFloatByKey(float *, char const*)const;
+
+            bool tryGetIterByIndex(gear::ByamlIter*, int) const;
 
             u32 getSize()const;
     };

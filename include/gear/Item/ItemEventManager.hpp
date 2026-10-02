@@ -6,6 +6,7 @@
 #include <container/seadRingBuffer.h>
 
 #include "ItemEvent.hpp"
+#include "EItemType.hpp"
 
 // #include "MK8D/Item/ItemEvent.hpp"
 // #include "MK8D/Item/EItemSlot.hpp"
@@ -34,7 +35,7 @@ namespace gear
             // void pushEvent_HitKart(gear::ItemReactInfo const&, bool);
             // void pushEvent_SlotRotate(int,uchar,gear::EItemSlot,bool);
             // void pushEvent_SlotDecide(int, unsigned char, gear::EItemSlot);
-            // void pushEvent_ObjDrop(int,gear::EItemType,sead::Vector3<float> const&,sead::Vector3<float> const&);
+            void pushEvent_ObjDrop(int, gear::EItemType, sead::Vector3<float> const&, sead::Vector3<float> const&);
 
             // void execEvent_SlotDrop_(gear::ItemEvent *);
             // void execEvent_SlotClear_(gear::ItemEvent *);

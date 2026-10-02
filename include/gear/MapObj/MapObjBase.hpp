@@ -24,6 +24,8 @@
 #include <gear/Kart/KartReactProxy.hpp>
 #include <object/Kart/KartInfoProxy.hpp>
 
+#include <gsys/Model/IModelCallback.hpp>
+
 #include <container/seadRingBuffer.h>
 
 #include <math/seadVector.h>
@@ -32,24 +34,24 @@
 
 namespace gear
 {
-    class MapObjBase : public Actor, public ObjectBase
+    class MapObjBase : public Actor, public ObjectBase, public gsys::IModelCallback
     {
     public:
         // gear::Actor overrides
         virtual void checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const override; //0x00
         virtual void getRuntimeTypeInfo(void)const override; //0x08
-        virtual ~MapObjBase() {};
+        virtual ~MapObjBase();
         virtual void prepare(gear::ArgumentObj const*) override;
         virtual void enter() override;
         virtual void calc() override;
 
-        virtual void afterModelUpdateWorldMatrix(gsys::Model*);
+        virtual void afterModelUpdateWorldMatrix(gsys::Model*) override;
         virtual void prepareObj(gear::ArgumentObj const*) {};
         virtual void enterObj(void) {};
         virtual void resetObj(void) {};
         virtual void calcObj(void) {};
         virtual void createCollision(void);
-        virtual void createRecorder(void) {};
+        virtual void createRecorder(void);
         virtual void reset(void);
         virtual void toIntro(void);
         virtual void startCountdown(void);
@@ -78,14 +80,14 @@ namespace gear
         virtual void calcVelGndLocal(gear::GndColDefine::GndInfo*, sead::Vector3<float> const&) {};
         virtual void reactPress(gear::EKartReact, gear::KartReactProxy*, gear::PrimColDefine::HitInfo&);
         virtual void reactCrash(gear::EKartReact, gear::KartReactProxy*, gear::PrimColDefine::HitInfo&);
-        virtual bool VFunc188(void) { return false; }; // 0x188
+        virtual bool isIgnoreWallCollision(void) { return false; }; // 0x188
         virtual bool VFunc190() { return true; }; // 0x190
         virtual void calcAfterRecorder_(void) {};
-        virtual void getRTMtxForChild(gear::MtxT*, gear::MtxT const&, float);
-        virtual void getLocalRTMtxForChild(gear::MtxT*, gear::MtxT const&);
-        virtual const char* getModelName(void);
+        virtual void getRTMtxForChild(gear::MtxT*, gear::MtxT const&, float) const;
+        virtual void getLocalRTMtxForChild(gear::MtxT*, gear::MtxT const&) const;
+        virtual const char* getModelName(void) const;
         virtual void calcOuter(void);
-        virtual const char* getName(void) override;
+        virtual const char* getName(void) const override;
         virtual void updateMatrix(void) override;
         virtual void setXLinkLocalLightMap_(void) override;
         virtual void hitKartSE(object::KartInfoProxy*, gear::EObjReact, gear::EKartReact, object::EObjColSe);
@@ -95,20 +97,29 @@ namespace gear
         virtual void calcAfterForChild(void);
         virtual void setIsCalcSkip(bool);
         virtual void addLapPathGroup(short);
-        virtual bool hasLapPathGroup(void);
+        virtual bool hasLapPathGroup(void) const;
         virtual void setVisibleForLapPathGroup(bool,int);
         virtual bool hasRidableFixedBlock(void) { return false; };
-        virtual bool isNeedUpdateChild(void);
-        virtual void vFunc230(float*, int) {}; // 0x230
+        virtual bool isNeedUpdateChild(void) const;
+        virtual void getKartBoundParam(void*, int) const {}; // 0x230
 
-        // gear::ObjectBase overrides
-        // virtual const char* getName() override;
-        // virtual void calcRecorder() override;
-        // virtual void updateMatrix() override;
-        // virtual void setXLinkLocalLightMap_() override;
+        class ClassParam
+        {
+        public:
+            uint8_t mSkeletalAnimNum; // 0x00
+            uint8_t mMaterialAnimNum; // 0x01
+            uint8_t mPad02[0x02]; // 0x02
+            float mPad04; // 0x04
+            float mPad08; // 0x08
+
+            // ClassParam() {}
+            ClassParam(uint8_t, uint8_t);
+            ClassParam(uint8_t, uint8_t, float, float);
+        };
 
 
-        uint8_t mPad128[0x88]; // 0x128
+        ClassParam* mClassParam;
+        uint8_t mPad138[0x78]; // 0x128
         MapObjDrawManager* mDrawManager; // 0x1B0
         int32_t mDrawManagerIndex; // 0x1B8
         int32_t mPad1BC; // 0x1BC

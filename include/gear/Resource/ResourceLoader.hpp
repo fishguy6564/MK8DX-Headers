@@ -7,6 +7,8 @@
 
 #include "ResourceBase.hpp"
 
+#include <gear/UI/EResourceCategory.hpp>
+
 namespace gear
 {
     class ResourceLoader

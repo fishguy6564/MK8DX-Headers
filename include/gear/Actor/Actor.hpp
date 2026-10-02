@@ -11,7 +11,7 @@
 
 namespace gear
 {
-    class Actor : public SeadGameDeallocator
+    class Actor : public SeadGameAllocator, public SeadGameDeallocator
     {
         public:
             virtual void checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const {}; //0x00
@@ -23,7 +23,7 @@ namespace gear
             virtual void render(agl::lyr::RenderInfo const&)const {}; //0x38
             virtual void exit() {}; //0x40
             virtual bool isDirector() { return false; }; //0x48
-            virtual void accept(gear::ActorVisitor &) {}; //0x50
+            virtual void accept(gear::ActorVisitor &); //0x50
             virtual void callbackInvokeEventID(int) {}; //0x58
             virtual void prepareOuter(void const* arg0); //0x60
             virtual void enterOuter(); //0x68
