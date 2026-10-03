@@ -20,6 +20,8 @@
 #include <gear/Collision/PrimColDefine.hpp>
 #include <gear/Collision/GndColDefine.hpp>
 
+#include <gear/MapObj/MapObjCreateArg.hpp>
+
 #include <gear/Kart/EKartReact.hpp>
 #include <gear/Kart/KartReactProxy.hpp>
 #include <object/Kart/KartInfoProxy.hpp>
@@ -125,5 +127,7 @@ namespace gear
         int32_t mPad1BC; // 0x1BC
         sead::FixedRingBuffer<int16_t, 8> mRouteGroup; // 0x1C0
         uint8_t mPad1E8[0x10]; // 0x1B8
+
+        MapObjBase(gear::MapObjCreateArg const&);
     };
 }

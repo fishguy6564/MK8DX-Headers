@@ -140,6 +140,9 @@ namespace object
         uint8_t mPad348[0x28]; //0x348 - 0x36F
         
         ControlInfo getControlInfo();
+
+        void setMatrixAndVel(gear::MtxT const&, sead::Vector3<float>*);
+        void onResetPosition(bool);
         
         KartVehicle();
 	};
