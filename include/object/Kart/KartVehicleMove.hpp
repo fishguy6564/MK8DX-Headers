@@ -29,13 +29,19 @@ namespace object
 			sead::Vector3f mPad320; //0x320 - 0x328
 			sead::Vector3f mPad32C; //0x32C - 0x334
 			sead::Vector3f mPad338; //0x338 - 0x340
-			uint8_t mPad344[0x38]; //0x344
+			uint8_t mPad344[0x0C]; //0x344
+			sead::Vector3f mInertiaA; // 0x350
+			sead::Vector3f mInertiaB; // 0x35C
+			uint8_t mPad368[0x14]; // 0x368
 			float mSpeed; //0x37C
 			uint8_t mPad380[0xA4];
 			float mTopSpeed1; // 0x424
 			float mTopSpeed2; // 0x428
 			float mTopSpeed3; // 0x42C
-			uint8_t mPad430[0x1C8]; // 0x430
+			uint8_t mPad430[0x108]; // 0x430
+			sead::Vector3f mPrevPosition; // 0x538
+			uint8_t mPad544[0x44]; // 0x544
+			uint8_t mPad588[0x70]; // 0x588
 
 			//0x5F8
 

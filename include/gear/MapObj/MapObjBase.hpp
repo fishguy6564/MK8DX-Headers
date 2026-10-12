@@ -21,6 +21,7 @@
 #include <gear/Collision/GndColDefine.hpp>
 
 #include <gear/MapObj/MapObjCreateArg.hpp>
+#include <gear/MapObj/MapUnitMapObj.hpp>
 
 #include <gear/Kart/EKartReact.hpp>
 #include <gear/Kart/KartReactProxy.hpp>
@@ -40,8 +41,8 @@ namespace gear
     {
     public:
         // gear::Actor overrides
-        virtual void checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const override; //0x00
-        virtual void getRuntimeTypeInfo(void)const override; //0x08
+        virtual bool checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const override; //0x00
+        virtual sead::RuntimeTypeInfo::Interface const* getRuntimeTypeInfo(void)const override; //0x08
         virtual ~MapObjBase();
         virtual void prepare(gear::ArgumentObj const*) override;
         virtual void enter() override;
@@ -120,13 +121,16 @@ namespace gear
         };
 
 
-        ClassParam* mClassParam;
-        uint8_t mPad138[0x78]; // 0x128
+        ClassParam* mClassParam; // 0x130
+        MapUnitMapObj* mMapUnit; // 0x138
+        uint8_t mPad140[0x70]; // 0x138
         MapObjDrawManager* mDrawManager; // 0x1B0
         int32_t mDrawManagerIndex; // 0x1B8
         int32_t mPad1BC; // 0x1BC
         sead::FixedRingBuffer<int16_t, 8> mRouteGroup; // 0x1C0
         uint8_t mPad1E8[0x10]; // 0x1B8
+
+        void setVisible(bool,int);
 
         MapObjBase(gear::MapObjCreateArg const&);
     };

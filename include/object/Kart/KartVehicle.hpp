@@ -12,6 +12,9 @@
 #include "KartVehicleReact.hpp"
 #include "KartJugemRecover.hpp"
 #include "KartSteerAssist.hpp"
+#include "KartSusKit.hpp"
+#include "KartChassis.hpp"
+#include "KartChassisAnim.hpp"
 
 namespace object
 {
@@ -37,10 +40,10 @@ namespace object
         KartVehicleBody* mKartVehicleBody; //0x38
         KartVehicleReact* mKartVehicleReact; //0x40
         uintptr_t mKartCollision; //0x48
-        uintptr_t mKartChassis; //0x50
-        uintptr_t mKartChassisAnim; //0x58
+        KartChassis* mKartChassis; //0x50
+        KartChassisAnim* mKartChassisAnim; //0x58
         uintptr_t mKartHeadLight; //0x60
-        uintptr_t mSusKit; //0x68
+        KartSusKit* mKartSusKit; //0x68
         uintptr_t mKartBalloon; //0x70
         uintptr_t mKartParameter; //0x78
         uintptr_t mRecorderKey; //0x80
@@ -114,7 +117,7 @@ namespace object
         uint32_t mSlipstreamDashFrames; //0x234
         uint8_t mPad238[0xC]; //0x238 - 0x243
         uint32_t mControlLockFrames; //0x244
-        uint32_t mBattleInvincibilityFrames; //0x248
+        int32_t mBattleInvincibilityFrames; //0x248
         uint32_t mPad24C; //0x24C
         uint32_t mBlinkVisualFrames; //0x250
         bool mIsDontSearch; //0x254
@@ -127,7 +130,7 @@ namespace object
         uint8_t mPad271[7]; //0x271 - 0x277
         float mXluAlpha; //0x278
         uint8_t mPad27C[0x1C]; //0x27C - 0x297
-        uint32_t mRaceInvincibilityFrames; //0x298
+        int32_t mRaceInvincibilityFrames; //0x298
         uint8_t mPad29C[0x88]; //0x29C - 0x323
         uint32_t mRenegadeCaughtFrames; //0x324
         uint32_t mCaughtRenegadeToPrisonTime; //0x328
@@ -142,7 +145,12 @@ namespace object
         ControlInfo getControlInfo();
 
         void setMatrixAndVel(gear::MtxT const&, sead::Vector3<float>*);
+        void resetAfterSetMatrix();
+
+        void calcCamTargetPos_(sead::Vector3<float>*);
+        
         void onResetPosition(bool);
+        void onCutOffFromJugem(void);
         
         KartVehicle();
 	};

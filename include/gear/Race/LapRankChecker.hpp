@@ -9,5 +9,7 @@ namespace gear
     public:
         uint8_t mPad00[0x64];
         uint8_t mLapTotal;
+
+        void adaptCurrentSector(int, bool);
     };
 }

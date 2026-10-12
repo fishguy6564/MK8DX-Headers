@@ -9,9 +9,13 @@
 #include <gear/Collision/GndCol.hpp>
 #include <gear/Collision/GndColHitInfo.hpp>
 
+#include <gear/Math/Matrix.hpp>
+#include <gear/XLink/XLinkUser.hpp>
+
 #include <object/Kart/KartInfoProxy.hpp>
 
 #include <math/seadVector.h>
+#include <math/seadMatrix.h>
 
 #include "../EItemType.hpp"
 #include "../ItemReactInfo.hpp"
@@ -22,8 +26,8 @@ namespace gear
     class ItemObjBase : public Actor
     {
         public:
-            virtual void checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const {}; // 0x00
-            virtual void getRuntimeTypeInfo(void)const {}; // 0x08
+            virtual bool checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const; // 0x00
+            virtual sead::RuntimeTypeInfo::Interface const* getRuntimeTypeInfo(void)const; // 0x08
             virtual ~ItemObjBase() {}; // 0x10, 0x18
             virtual void prepare(gear::ArgumentObj const*) {}; // 0x20
             virtual void enter() {}; // 0x28
@@ -123,14 +127,19 @@ namespace gear
             uint32_t mObjectIdx; // 0x60
             uint8_t mPad64[0x34]; // 0x64
             void* mScaleStructPtr; // 0x98 
-            uint8_t mPadA0[0x88]; // 0xA0
-            float mCollisionScale; // 0x128 
-            sead::Vector3f mDisplayHeight; // 0x12C, 0x130, 0x134 
-            uint8_t mPad138[0x1C]; // 0x138 
-            sead::Vector3f mPad154; // 0x154, 0x158, 0x15C
+            sead::Matrix34f mTransform; // 0xA0
+            uint8_t mPadD0[0x08]; // 0xD0
+            sead::Vector3f mScale; // 0xD8
+            uint8_t mPadE4[0x44]; // 0xE4
+            float mScaleFactor; // 0x128
+            sead::Vector3f mPosition; // 0x12C
+            uint8_t mPad138[0x0C]; // 0x138
+            sead::Vector3f mVelocity; // 0x144
+            float mSpeed; // 0x150
+            sead::Vector3f mMoveVelocity; // 0x154
             sead::Vector3f mPad160; // 0x160, 0x164, 0x168
             uint8_t mPad16C[0x10]; // 0x16C 
-            float mVelocity; // 0x17C 
+            float mPad17C; // 0x17C 
             uint8_t mPad180[0x10]; // 0x180 
             float* mPad190; // 0x190
             uint8_t mPad198[0x20]; // 0x198
@@ -153,14 +162,20 @@ namespace gear
             uint8_t mPad1F3; // 0x1F3
             uint32_t mPad1F4; // 0x1F4
             uint32_t mReactType; // 0x1F8
-            uint8_t mPad1FC[0x2C]; // 0x1FC 
+            uint8_t mPad1FC[0x08]; // 0x1FC
+            sead::Vector3f mThrowVelocity; // 0x204
+            uint8_t mPad210[0x18]; // 0x210
             bool mReflectTooMany; // 0x228
-            uint8_t mPad229[0xC3]; // 0x229
+            uint8_t mPad229[0x4F]; // 0x229
+            gear::XLinkUser* mXLinkUser; // 0x278;
+            uint8_t mPad280[0x6C]; // 0x280
             EColMode mCurrentCollisionMode; // 0x2EC
             EColMode mPreviousCollisionMode; // 0x2F0 
             int32_t mPad2F4; // 0x2F4 
-            int32_t mStandbyCounter; // 0x2F8 
-            uint8_t mPad2FC[0x1C]; // 0x2FC
+            int32_t mStandbyCounter; // 0x2F8
+            sead::Vector3f mEquipMultiForward; // 0x2FC
+            sead::Vector3f  mEquipMultiUp; // 0x308
+            uint8_t mPad314[0x04]; // 0x314
             uint16_t mItemSerial; // 0x318
             uint16_t mPad31A; // 0x31A
             uint8_t mPad31C[0xC]; // 0x31C

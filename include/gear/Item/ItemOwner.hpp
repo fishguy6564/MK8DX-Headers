@@ -7,7 +7,9 @@
 #include "ItemSlot.hpp"
 #include "Obj/ItemObjBase.hpp"
 #include "EItemSlot.hpp"
+
 #include <object/Kart/KartInfoProxy.hpp>
+#include <container/seadSafeArray.h>
 
 namespace gear
 {
@@ -29,7 +31,7 @@ namespace gear
             int32_t mSwapSlotTimer; //0x70
             uint32_t mSwapSlotFlag; //0x74
             gear::ItemObjBase* mKeepItemObj; //0x78
-            gear::ItemObjBase* mEquipItemObj[8]; //0x80
+            sead::SafeArray<gear::ItemObjBase*, 8> mEquipItemObj; // 0x80
             uint32_t mEquipCurrentCount; //0xC0
             uint32_t mEquipTotalCount; //0xC4
             gear::EItemSlot mEquipItemSlot; //0xC8

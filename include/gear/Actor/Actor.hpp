@@ -8,14 +8,15 @@
 
 #include "agl/common/aglRenderInfo.h"
 #include "sead/basis/seadNewWrapper.hpp"
+#include <heap/seadHeapMgr.h>
 
 namespace gear
 {
     class Actor : public SeadGameAllocator, public SeadGameDeallocator
     {
         public:
-            virtual void checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const {}; //0x00
-            virtual void getRuntimeTypeInfo(void)const {}; //0x08
+            virtual bool checkDerivedRuntimeTypeInfo(sead::RuntimeTypeInfo::Interface const*)const; //0x00
+            virtual sead::RuntimeTypeInfo::Interface const* getRuntimeTypeInfo(void)const; //0x08
             virtual ~Actor() {}; //0x10, 0x18
             virtual void prepare(gear::ArgumentObj const*) {}; //0x20
             virtual void enter() {}; //0x28
@@ -32,7 +33,7 @@ namespace gear
             uintptr_t mPad10; //0x10
             uintptr_t mPad18; //0x18
             uintptr_t mPad20; //0x20
-            uintptr_t mPad28; //0x28
+            void* mDirector; //0x28
             uintptr_t mPad30; //0x30
 
             Actor();

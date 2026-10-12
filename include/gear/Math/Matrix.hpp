@@ -18,7 +18,8 @@ namespace gear
             float M32; //0x1C
             float M33; //0x20
 
-            void out(sead::Quat<float> *)const;
+            void in(sead::Quat<float> const&);
+            void out(sead::Quat<float> *) const;
 
             inline void idenity() {
                 M11 = 1.0f; M12 = 0.0f; M13 = 0.0f;

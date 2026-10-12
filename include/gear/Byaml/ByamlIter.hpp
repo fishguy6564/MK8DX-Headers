@@ -22,6 +22,7 @@ namespace gear
             bool tryGetStringByKey(char const**, char const*)const;
             bool tryGetIntByKey(int *, char const*)const;
             bool tryGetFloatByKey(float *, char const*)const;
+            bool tryGetBoolByKey(bool *,char const*) const;
 
             bool tryGetIterByIndex(gear::ByamlIter*, int) const;
 

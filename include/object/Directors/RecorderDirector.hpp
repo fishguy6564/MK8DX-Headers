@@ -26,5 +26,7 @@ namespace object
         virtual void mVirtFunc90(); // 0x90
 
         virtual bool makeGhostData(); // 0x98
+
+        void onWarpNetKart(int32_t);
     };
 }
