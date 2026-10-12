@@ -24,8 +24,8 @@ namespace object
             gear::MtxT mPad29C; //0x29C
             gear::MtxT mPad2CC; //0x2CC
             sead::Vector3f mDriveDir; //0x2FC - 0x304
-			sead::Vector3f mPad308; //0x308 - 0x310
-			sead::Vector3f mPad314; //0x314 - 0x31C
+			sead::Vector3f mDriveTarget; //0x308 - 0x310
+			sead::Vector3f mDriveDirPrev; //0x314 - 0x31C
 			sead::Vector3f mPad320; //0x320 - 0x328
 			sead::Vector3f mPad32C; //0x32C - 0x334
 			sead::Vector3f mPad338; //0x338 - 0x340
@@ -47,6 +47,8 @@ namespace object
 
             void SetMatrix(gear::MtxT const& transformation, sead::Vector3<float> position);
 			void SetMatrix(gear::MtxT const& transformation);
+
+			void addInertiaForce(sead::Vector3<float> const&);
 
             KartVehicleMove();
     };
